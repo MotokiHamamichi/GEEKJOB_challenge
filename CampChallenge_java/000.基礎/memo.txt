@@ -1,0 +1,9 @@
+000.基礎
+
+
+OS:Windows 10 Home
+CPU:Intel Core i5-5200U
+メモリー:4.00GB
+ハードディスク
+ 全体容量:119GB
+ 空き容量:60.0GB
