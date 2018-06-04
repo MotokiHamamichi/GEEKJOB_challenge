@@ -11,8 +11,8 @@
 <!DOCTYPE html>
 
 <%
-    int total = 1;
-    for(int i =0; i<=20; i++){
+    long total = 1;
+    for(long i =0; i<20; i++){
         total = total * 8;
     }
     out.print(total);
