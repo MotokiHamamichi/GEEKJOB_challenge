@@ -32,10 +32,14 @@ public class FortuneTelling extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
+        try (PrintWriter out = response.getWriter()) {
             String luckList[] = {"大吉", "中吉", "吉", "半吉", "末小吉", "凶", "小凶", "半凶", "末凶", "凶", "大凶"};
             Random rand = new Random();
             Integer index = rand.nextInt(luckList.length);
+            out.print("今日のあなたの運勢は..." + luckList[index]);
+            
+        }
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -77,4 +81,4 @@ public class FortuneTelling extends HttpServlet {
     }// </editor-fold>
 
 }
-        
+
