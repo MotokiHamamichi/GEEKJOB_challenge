@@ -11,8 +11,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Random;
 
+import java.util.Date;
+import java.util.Random;
+import javax.servlet.RequestDispatcher;
+import org.camp.servlet.ResultData;
 
 /**
  *
@@ -38,6 +41,14 @@ public class FortuneTelling extends HttpServlet {
             Integer index = rand.nextInt(luckList.length);
             out.print("今日のあなたの運勢は..." + luckList[index]);
             
+            //リクエストスコープへ結果を設定
+            ResultData data = new ResultData();
+            data.setD(new Date());
+            data.setLuck(luckList[index]);
+            request.setAttribute("DATA",data);
+
+            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/FortuneTellingResult.jsp");
+            rd.forward(request,response);
         }
     }
 
